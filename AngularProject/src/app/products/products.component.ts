@@ -52,7 +52,7 @@ export class ProductsComponent implements OnInit {
     else{
       this.cartData = this.pushData(this.cartData, cart);
     }
-
+    this.showDialog = true;
   }
 
   deleteConf(event) {
