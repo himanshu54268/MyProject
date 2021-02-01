@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    margin: 0;
+    height: 100%;
+    padding: 0;
+    /* background: url('images/ocean.jpg') center #000000;*/
+    overflow: hidden;
+}
+
+.main-box {
+    margin: 10px 8px;
+    min-height: 92vh;
+    padding: 2px 4px;
+    box-shadow: 0 0 6px 2px #565656;
+    border-radius: 4px;
+    background-color: floralwhite;
+}
+
+#main-content{width:100%;padding:1px;transition:all .3s;overflow: auto;}
+
+.product-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+    align-self: flex-end;
+    float: right;
+}
+
+img {
+    width: 90px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    /* margin-right: 2rem; */
+}
+
+.tableScroll
+{
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.product-qty {
+    margin: 0 0 -13rem -2rem;
+}
+
+.product-list-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+}

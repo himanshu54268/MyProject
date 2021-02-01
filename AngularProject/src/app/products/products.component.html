@@ -1,0 +1,60 @@
+<div>
+    <header style="margin-top: 20px;background-color: aliceblue;">
+        <img src="../../assets/logo.jpg" style="width: 100px;height: 100px;margin-left: 45%;border-radius: 30%;" />
+        <div style="float: right;margin: 2%;">
+            <p-button icon="pi pi-shopping-cart" label="My Cart {{cartData.length}}" (click)="showDialog = true">
+            </p-button>
+        </div>
+    </header>
+
+    <div class="tableScroll" style="height: 500px">
+        <p-dataView [value]="prodData" [paginator]="true" [rows]="4">
+            <ng-template let-product pTemplate="listItem">
+                <div>
+                    <div>
+                        <div class="product-list-item">
+                            <div class="product-name">{{product.name}}</div>
+                        </div>
+                        <img [src]="product.image" [alt]="product.name" />
+                        <div class="product-price">
+                            <span style="margin-right: 5px;">${{product.price}}</span>
+                            <p-button icon="pi pi-shopping-cart" label="Add to Cart" (click)="addConf(product)">
+                            </p-button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-dataView>
+    </div>
+</div>
+
+<p-dialog header="My Cart" [(visible)]="showDialog" modal="modal">
+    <div style="width: 700px;height: 500px;">
+        <p-dataView [value]="cartData" [paginator]="true" [rows]="4">
+            <ng-template let-product pTemplate="listItem">
+                <div>
+                    <div>
+                        <div class="product-list-item">
+                            <div class="product-name">{{product.name}}</div>
+                            <div class="product-qty"><b>Available Item: {{product.quantity}}</b>
+                                <b style="margin-left: 110px;">Number of Item to be added</b>
+                                <input name="qty" type="number" min="1" [(ngModel)]="product.qty_perItem"
+                                    max="{{product.quantity}}" ngModel style="width: 40px;margin-left: 5px;"
+                                    (click)="changePrice(product)" />
+                            </div>
+                        </div>
+                        <img [src]="product.image" [alt]="product.name" />
+                        <div style="float: right;">
+                            <span style="margin-right: 5px;">${{product.total}}</span>
+                            <p-button icon="pi pi-trash" label="Remove item" (click)="deleteConf(product)">
+                            </p-button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-dataView>
+        <div style="float: right;">
+            <b>Total:</b>${{total}}
+        </div>
+    </div>
+</p-dialog>
