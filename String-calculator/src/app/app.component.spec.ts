@@ -21,4 +21,16 @@ describe('AppComponent', () => {
   it('should return the sum of comma-separated numbers', () => {
     expect(component.add('1,2,3')).toEqual(6);
   });
+
+  it('should handle new lines as delimiters', () => {
+    expect(component.add('1\n2,3')).toEqual(6);
+  });
+
+  it('should throw an error for negative numbers', () => {
+    expect(() => component.add('1,-2,3')).toThrowError('Negative numbers not allowed: -2');
+  });
+
+  it('should list all negative numbers in the error message', () => {
+    expect(() => component.add('1,-2,3,-4')).toThrowError('Negative numbers not allowed: -2, -4');
+  });
 });
