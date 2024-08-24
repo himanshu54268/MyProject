@@ -33,4 +33,8 @@ describe('AppComponent', () => {
   it('should list all negative numbers in the error message', () => {
     expect(() => component.add('1,-2,3,-4')).toThrowError('Negative numbers not allowed: -2, -4');
   });
+
+  it('should support custom delimiters', () => {
+    expect(component.add('//;\n1;2')).toEqual(3);
+  });
 });
